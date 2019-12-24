@@ -160,7 +160,7 @@ const IdClass<IdType_, TypesafeType_, InvalidValue_>
 
 #define DECLARE_IDCLASS_EX(IdName_, IdType_, InvalidValue_) \
     struct TYPE_##_IDNAME##__ {}; \
-    typedef Engine::IdClass<IdType_, TYPE_##_IDNAME##__, InvalidValue_> IdName_;
+    using IdName_ = Engine::IdClass<IdType_, TYPE_##_IDNAME##__, InvalidValue_>;
 
 //
 // ----------------------------------------------------------------------------

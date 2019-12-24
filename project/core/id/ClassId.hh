@@ -124,7 +124,7 @@ private: // types /////////////////////////////////////////////////////////////
     //
     //
     //
-    typedef HashIdClass<ClassId, 0> ClassHashId;
+    using ClassHashId = HashIdClass<ClassId, 0>;
 
 private: // members ///////////////////////////////////////////////////////////
 
@@ -143,9 +143,9 @@ private: // members ///////////////////////////////////////////////////////////
 
 #define DECLARE_CLASSID_INTERNAL_(ClassName_, SUFFIX_) \
     public: \
-        typedef std::shared_ptr<ClassName_> Ptr; \
-        typedef std::unique_ptr<ClassName_> Unique; \
-        typedef std::weak_ptr<ClassName_> Handle; \
+        using Ptr = std::shared_ptr<ClassName_>; \
+        using Unique = std::unique_ptr<ClassName_>; \
+        using Handle = std::weak_ptr<ClassName_>; \
         virtual const Engine::ClassId& getClassId() const SUFFIX_ { return getStaticClassId(); } \
         static bool isTypeOf(const Engine::ClassId& type) { return getStaticClassId().isTypeOf(type); } \
         template<typename Class_> static bool isTypeOf() { return isTypeOf(Class_::getStaticClassId()); } \

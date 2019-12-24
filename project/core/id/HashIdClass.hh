@@ -21,9 +21,9 @@ class HashIdClass
 {
 public: // types //////////////////////////////////////////////////////////////
 
-    typedef size_t HashType;
+    using HashType = size_t;
 
-    typedef IdClass<HashType, TypesafeType_, InvalidHashValue_> BaseIdClass;
+    using BaseIdClass = IdClass<HashType, TypesafeType_, InvalidHashValue_>;
 
     static const HashType InvalidHashValue;
 
@@ -163,7 +163,7 @@ const HashIdClass<TypesafeType_, InvalidHashValue_> HashIdClass<TypesafeType_, I
 
 #define DECLARE_HASHIDCLASS_EX(IdName_, _InvalidValue) \
     struct TYPE_##_IDNAME##__ {}; \
-    typedef Engine::HashIdClass<TYPE_##_IDNAME##__, _InvalidValue> IdName_;
+    using IdName_ = Engine::HashIdClass<TYPE_##_IDNAME##__, _InvalidValue>;
 
 
 //
