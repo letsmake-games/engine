@@ -30,12 +30,12 @@ public: // types //////////////////////////////////////////////////////////////
     //
     // internal id type
     //
-    typedef IdType_ IdType;
+    using IdType = IdType_;
 
     //
     // static invalid id value
     //
-    static const IdType InvalidValue;
+    static constexpr IdType InvalidValue = InvalidValue_;
 
     //
     // Invalid Id
@@ -149,14 +149,6 @@ private: // members ///////////////////////////////////////////////////////////
 //
 
 template<typename IdType_, typename TypesafeType_, IdType_ InvalidValue_>
-const typename IdClass<IdType_, TypesafeType_, InvalidValue_>::IdType
-      IdClass<IdType_, TypesafeType_, InvalidValue_>::InvalidValue = InvalidValue_;
-
-//
-// ----------------------------------------------------------------------------
-//
-
-template<typename IdType_, typename TypesafeType_, IdType_ InvalidValue_>
 const IdClass<IdType_, TypesafeType_, InvalidValue_> 
       IdClass<IdType_, TypesafeType_, InvalidValue_>::InvalidId = IdClass();
 
@@ -176,35 +168,3 @@ const IdClass<IdType_, TypesafeType_, InvalidValue_>
 
 #define DECLARE_IDCLASS(IdName_, IdType_) \
     DECLARE_IDCLASS_EX(IdName_, IdType_, std::numeric_limits<IdType_>::max())
-
-//
-// ----------------------------------------------------------------------------
-//
-
-#define DECLARE_SEQUENTIAL_IDGENERATOR(IdName_) \
-    namespace IdGenerator { \
-        struct IdName_##Generator \
-        { \
-            IdName_ next(bool reset = false) \
-            { \
-                if(reset) lastId = IdName_::InvalidValue; \
-                    IdName_ result = IdName_::InvalidValue; \
-                if((IdName_::IdType)(lastId + 1) != IdName_::InvalidValue) \
-                { \
-                    result = ++lastId; \
-                } \
-                return IdName_(result); \
-            } \
-            IdName_ last() \
-            { \
-                return IdName_(lastId); \
-            } \
-        private: \
-            IdName_::IdType lastId = IdName_::InvalidValue; \
-        }; \
-        IdName_ generate##IdName_(bool reset = false) \
-        { \
-            static IdName_##Generator generator; \
-            return generator.next(reset); \
-        } \
-    }

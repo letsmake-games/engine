@@ -14,6 +14,7 @@ configure_file(Engine.hh.in ${CMAKE_CURRENT_BINARY_DIR}/Engine.hh)
 #
 
 add_subdirectory(core)
+add_subdirectory(editor)
 add_subdirectory(glfw)
 add_subdirectory(window)
 

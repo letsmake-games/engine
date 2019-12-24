@@ -113,8 +113,6 @@ function(bt_add_executable NAME)
     set(args)
     set(margs 
         SOURCES 
-        TESTS
-        BENCHMARKS
         LIBRARIES
     )
     cmake_parse_arguments(ARGS "${opts}" "${args}" "${margs}" ${ARGN})

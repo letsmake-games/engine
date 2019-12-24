@@ -21,6 +21,7 @@ bt_add_test(
         test/ClassId.cc
         test/HashIdClass.cc
         test/IdClass.cc
+        test/SequentialIdGenerator.cc
     
     BENCHMARKS
         benchmark/ClassId.cc

@@ -7,5 +7,6 @@ bt_add_library(
     window INTERFACE
     INTERFACE_LIBRARIES
         engine
+        glm
         id
 )
