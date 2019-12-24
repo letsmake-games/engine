@@ -40,8 +40,8 @@ git submodule update --init --recursive
 if [[ $NOPROMPT = false ]]
 then
     read -p "${BEGIN}It is highly recommended you update system dependencies now.  We \
-    will also install some additional system dependencies, such as Ninja build system \
-    and build-essential.  Would you like us to do that for you? [y/n] ${END}"
+will also install some additional system dependencies, such as Ninja build system \
+and build-essential.  Would you like us to do that for you? [y/n] ${END}"
 fi
 
 if [[ $REPLY =~ ^[Yy]$ ]] || [[ $NOPROMPT = true ]]
@@ -65,8 +65,8 @@ clear
 if [[ $NOPROMPT = false ]]
 then
     read -p "${BEGIN}This project uses CMake to build it's native libraries.  If you have a \
-    globally accessible cmake binary, you can skip this step, or install it yourself. \
-    Would you like us to install cmake now? [y/n] ${END}"
+globally accessible cmake binary, you can skip this step, or install it yourself. \
+Would you like us to install cmake now? [y/n] ${END}"
 fi
 
 if [[ $REPLY =~ ^[Yy]$ ]] || [[ $NOPROMPT = true ]] 
@@ -139,8 +139,8 @@ fi
 if [[ $NOPROMPT = false ]]
 then
     read -p "${BEGIN}For convenience the deps tool can be installed to your system \
-    Alternatively you can install its dependencies using pip and call it directly \
-    via tools/deps/bin/deps.  Would you like to install it? [y/n]${END}"
+Alternatively you can install its dependencies using pip and call it directly \
+via tools/deps/bin/deps.  Would you like to install it? [y/n]${END}"
     echo ""
 fi
 
@@ -162,9 +162,9 @@ clear
 if [[ $NOPROMPT = false ]]
 then
     read -p "${BEGIN}Based on your platform we can create softlinks to common tools and utilities \
-    to reduce the amount of typing you need to do.  These will be linked into \
-    the project root, for example ./deps or ./build.  Would you like to make these \
-    softlinks? [y/n] ${END}"
+to reduce the amount of typing you need to do.  These will be linked into \
+the project root, for example ./deps or ./build.  Would you like to make these \
+softlinks? [y/n] ${END}"
     echo ""
 fi
 
