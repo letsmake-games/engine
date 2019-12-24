@@ -1,0 +1,7 @@
+project: {installDir: extern, patchDir: patches}
+dependencies:
+  gbench: {repo: 'https://github.com/google/benchmark', tag: v1.5.0}
+  gtest: {repo: 'https://github.com/google/googletest', tag: release-1.10.0}
+  glm: {repo: 'https://github.com/g-truc/glm', sha: 8828c3f1fd05e173d94417ca4565aa634dabb1c1}
+  fmt: {repo: 'https://github.com/fmtlib/fmt', tag: 6.1.2}
+  glfw: {repo: 'https://github.com/glfw/glfw/', tag: '3.3'}

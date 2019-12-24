@@ -1,0 +1,65 @@
+//
+// (C) LetsMakeGames 2019
+// http://www.letsmake.games
+//
+
+#pragma once
+
+#include <cstdint>
+#include <new>
+#include <stddef.h>
+#include <stdlib.h>
+
+//
+// project info ///////////////////////////////////////////////////////////////
+//
+
+#define PROJECT_NAME @PROJECT_NAME@
+#define PROJECT_MAJOR @PROJECT_MAJOR@
+#define PROJECT_MINOR @PROJECT_MINOR@
+#define PROJECT_PATCH @PROJECT_PATCH@
+#define PROJECT_VERSION "@PROJECT_VERSION@"
+
+//
+// platform defines ///////////////////////////////////////////////////////////
+//
+
+#cmakedefine BT_PLATFORM_UNIX
+#cmakedefine BT_PLATFORM_WIN32
+#cmakedefine BT_PLATFORM_APPLE
+#cmakedefine BT_PLATFORM_MINGW
+#cmakedefine BT_PLATFORM_CYGWIN
+#cmakedefine BT_PLATFORM_OTHER
+
+//
+// compiler info //////////////////////////////////////////////////////////////
+//
+
+#cmakedefine BT_GCC
+#cmakedefine BT_MSVC
+
+//
+// build info /////////////////////////////////////////////////////////////////
+//
+
+#cmakedefine BT_DEBUG
+#cmakedefine BT_RELEASE
+
+//
+// operator new overload for EASTL
+//
+//inline void* operator new[](size_t size, const char* /*name*/, int /*flags*/, 
+//					 unsigned /*debugFlags*/, const char* /*file*/, int /*line*/)
+//{
+//	return new uint8_t[size];
+//}
+//
+////
+//// -------------------------------------------------------------------------
+////
+//
+//inline void* operator new[](size_t size, size_t alignment, size_t /*alignmentOffset*/, const char* /*name*/, 
+//					 int flags, unsigned /*debugFlags*/, const char* /*file*/, int /*line*/)
+//{
+//    return std::aligned_alloc(alignment, size);
+//}

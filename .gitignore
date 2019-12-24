@@ -1,0 +1,14 @@
+bin
+lib
+.build
+node_modules
+
+extern/*
+!extern/CMakeLists.txt
+!extern/glad
+
+/deps
+/build
+/bench
+/build.bat
+/bench.bat
