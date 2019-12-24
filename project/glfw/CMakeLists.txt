@@ -3,6 +3,8 @@
 # http://www.letsmake.games
 #
 
+add_subdirectory(examples)
+
 #
 # API Library #################################################################
 #
