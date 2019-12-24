@@ -196,7 +196,7 @@ fi
 # Finished ####################################################################
 #
 
-echo "${FINAL}Project has been bootstrapped!  Next you should run \"deps install\" and then you will be able to run \"./build\"${END}"
+echo "${FINAL}Project has been bootstrapped!  Next you should run \"./deps install\" and then you will be able to run \"./build\"${END}"
 if [[ $NEED_BASH_PROFILE = true ]]
 then
     echo "${ALERT}You will need to run \"source $HOME/.bash_profile\" or reopen your terminal before cmake is available! [enter]${END}"
