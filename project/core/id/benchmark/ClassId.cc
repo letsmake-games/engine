@@ -130,7 +130,7 @@ static void ClassId_UnsafePtrCast(benchmark::State& state)
     ClassC::Ptr ptr = ClassC::Ptr(new ClassC); 
     for(auto _ : state)
     {
-        ClassA::Ptr aptr = blacktriangles::ptrCast<ClassA>(ptr);
+        ClassA::Ptr aptr = Engine::ptrCast<ClassA>(ptr);
     }
 }
 BENCHMARK(ClassId_UnsafePtrCast);
@@ -160,7 +160,7 @@ static void ClassId_UnsafeHndCast(benchmark::State& state)
     ClassC::Handle weak = ptr;
     for(auto _ : state)
     {
-        ClassA::Handle aptr = blacktriangles::handleCast<ClassA>(weak);
+        ClassA::Handle aptr = Engine::handleCast<ClassA>(weak);
     }
 }
 BENCHMARK(ClassId_UnsafeHndCast);

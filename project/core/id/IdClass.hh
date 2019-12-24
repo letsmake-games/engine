@@ -12,7 +12,7 @@
 #include <ostream>
 #include <string>
 
-namespace blacktriangles
+namespace Engine
 {
 
 //
@@ -168,7 +168,7 @@ const IdClass<IdType_, TypesafeType_, InvalidValue_>
 
 #define DECLARE_IDCLASS_EX(IdName_, IdType_, InvalidValue_) \
     struct TYPE_##_IDNAME##__ {}; \
-    typedef blacktriangles::IdClass<IdType_, TYPE_##_IDNAME##__, InvalidValue_> IdName_;
+    typedef Engine::IdClass<IdType_, TYPE_##_IDNAME##__, InvalidValue_> IdName_;
 
 //
 // ----------------------------------------------------------------------------

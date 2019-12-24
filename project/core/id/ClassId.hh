@@ -9,7 +9,7 @@
 
 #include <string>
 
-namespace blacktriangles
+namespace Engine
 {
 
 //
@@ -146,15 +146,15 @@ private: // members ///////////////////////////////////////////////////////////
         typedef std::shared_ptr<ClassName_> Ptr; \
         typedef std::unique_ptr<ClassName_> Unique; \
         typedef std::weak_ptr<ClassName_> Handle; \
-        virtual const blacktriangles::ClassId& getClassId() const SUFFIX_ { return getStaticClassId(); } \
-        static bool isTypeOf(const blacktriangles::ClassId& type) { return getStaticClassId().isTypeOf(type); } \
+        virtual const Engine::ClassId& getClassId() const SUFFIX_ { return getStaticClassId(); } \
+        static bool isTypeOf(const Engine::ClassId& type) { return getStaticClassId().isTypeOf(type); } \
         template<typename Class_> static bool isTypeOf() { return isTypeOf(Class_::getStaticClassId()); } \
         template<typename Inherit_> \
         static Ptr ptrCast(std::shared_ptr<Inherit_> from) \
         { \
             if(from != nullptr && from->getClassId().isTypeOf(getStaticClassId())) \
             { \
-                return blacktriangles::ptrCast<ClassName_>(from); \
+                return Engine::ptrCast<ClassName_>(from); \
             } \
             return Ptr(); \
         } \
@@ -164,7 +164,7 @@ private: // members ///////////////////////////////////////////////////////////
             typename Inherit_::Ptr fromPtr = from.lock(); \
             if(fromPtr != nullptr && fromPtr->getClassId().isTypeOf(getStaticClassId())) \
             { \
-                return blacktriangles::handleCast<ClassName_>(from); \
+                return Engine::handleCast<ClassName_>(from); \
             } \
             return Handle(); \
         }
@@ -176,9 +176,9 @@ private: // members ///////////////////////////////////////////////////////////
 #define DECLARE_CLASSID_NOBASE(ClassName_) \
     DECLARE_CLASSID_INTERNAL_(ClassName_, ) \
     public: \
-        static const blacktriangles::ClassId& getStaticClassId() \
+        static const Engine::ClassId& getStaticClassId() \
         { \
-            static blacktriangles::ClassId sClassId(#ClassName_); \
+            static Engine::ClassId sClassId(#ClassName_); \
             return sClassId; \
         }
 
@@ -188,8 +188,8 @@ private: // members ///////////////////////////////////////////////////////////
 
 #define DECLARE_CLASSID(ClassName_, BaseClass_) \
     DECLARE_CLASSID_INTERNAL_(ClassName_, override) \
-    static const blacktriangles::ClassId& getStaticClassId() \
+    static const Engine::ClassId& getStaticClassId() \
     { \
-        static blacktriangles::ClassId sClassId(#ClassName_, BaseClass_::getStaticClassId()); \
+        static Engine::ClassId sClassId(#ClassName_, BaseClass_::getStaticClassId()); \
         return sClassId; \
     }

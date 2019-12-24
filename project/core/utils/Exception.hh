@@ -12,7 +12,7 @@
 #include <sstream>
 #include <string>
 
-namespace blacktriangles
+namespace Engine
 {
 
 //

@@ -16,7 +16,7 @@ static void String_Split(benchmark::State& state)
 {
     for( auto _ : state )
     {
-        std::vector<std::string> s = blacktriangles::split("192.168.1.1", ".");
+        std::vector<std::string> s = Engine::split("192.168.1.1", ".");
     }
 }
 BENCHMARK(String_Split);

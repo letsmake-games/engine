@@ -11,7 +11,7 @@
 #include <cstddef>
 #include <vector>
 
-namespace blacktriangles
+namespace Engine
 {
 
 using byte = uint8_t;

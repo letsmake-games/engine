@@ -12,14 +12,14 @@
 #include <GLFW/glfw3.h>
 #include <vector>
 
-namespace blacktriangles::glfw
+namespace Engine::glfw
 {
 
 //
 // A GLFW based window
 //
 class WindowManager final
-    : public blacktriangles::WindowManager
+    : public Engine::WindowManager
 {
 public: // constructor / destructor ///////////////////////////////////////////
 
@@ -48,4 +48,4 @@ private: // members ///////////////////////////////////////////////////////////
     std::vector<GLFWwindow*> m_windows;
 };
 
-} // blacktriangles::glfw
+} // Engine::glfw

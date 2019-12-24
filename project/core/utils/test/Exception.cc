@@ -15,7 +15,7 @@
 
 TEST(Test_Exception, What)
 {
-    blacktriangles::Exception ex;
+    Engine::Exception ex;
     EXPECT_STREQ(ex.what(), "");
 
     ex << "This";

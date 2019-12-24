@@ -8,7 +8,7 @@
 #include "Engine.hh"
 #include "core/id/IdClass.hh"
 
-namespace blacktriangles
+namespace Engine
 {
 
 //

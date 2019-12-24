@@ -13,7 +13,7 @@
 
 TEST(Test_ByteBuffer, Construction)
 {
-    blacktriangles::ByteBuffer {};
+    Engine::ByteBuffer {};
 }
 
 //
@@ -22,7 +22,7 @@ TEST(Test_ByteBuffer, Construction)
 
 TEST(Test_FixedByteBuffer, Construction)
 {
-    blacktriangles::FixedByteBuffer<128> buff;
+    Engine::FixedByteBuffer<128> buff;
     EXPECT_EQ(buff.size(), 128);
 }
 

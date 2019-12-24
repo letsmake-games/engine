@@ -9,7 +9,7 @@
 #include <functional>
 #include <string>
 
-namespace blacktriangles
+namespace Engine
 {
 
 //
@@ -163,7 +163,7 @@ const HashIdClass<TypesafeType_, InvalidHashValue_> HashIdClass<TypesafeType_, I
 
 #define DECLARE_HASHIDCLASS_EX(IdName_, _InvalidValue) \
     struct TYPE_##_IDNAME##__ {}; \
-    typedef blacktriangles::HashIdClass<TYPE_##_IDNAME##__, _InvalidValue> IdName_;
+    typedef Engine::HashIdClass<TYPE_##_IDNAME##__, _InvalidValue> IdName_;
 
 
 //

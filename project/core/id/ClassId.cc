@@ -5,7 +5,7 @@
 
 #include "core/id/ClassId.hh"
 
-namespace blacktriangles
+namespace Engine
 {
 
 //

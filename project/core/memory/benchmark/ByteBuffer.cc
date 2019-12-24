@@ -9,10 +9,10 @@
 
 static void ByteBuffer_Creation(benchmark::State& state)
 {
-    blacktriangles::ByteBuffer* buff = nullptr;
+    Engine::ByteBuffer* buff = nullptr;
     for(auto _ : state)
     {
-        buff = new blacktriangles::ByteBuffer(128);
+        buff = new Engine::ByteBuffer(128);
     }
     buff->clear();
     delete buff;

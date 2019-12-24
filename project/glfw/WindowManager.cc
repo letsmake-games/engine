@@ -5,7 +5,7 @@
 
 #include "glfw/WindowManager.hh"
 
-namespace blacktriangles::glfw
+namespace Engine::glfw
 {
 
 //
@@ -53,4 +53,4 @@ void WindowManager::close(WindowId id)
 {
 }
 
-} // blacktriangles::glfw
+} // Engine::glfw
