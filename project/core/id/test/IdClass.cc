@@ -44,14 +44,16 @@ TEST(Test_IdClass, Equality)
     BasicId id1;
     BasicId id2;
 
+    EXPECT_EQ(BasicId::max, std::numeric_limits<uint8_t>::max());
+
     EXPECT_EQ(id1, id2);
     EXPECT_EQ(id1, BasicId::InvalidId);
-    EXPECT_EQ(id1.getRawId(), std::numeric_limits<uint8_t>::max());
+    EXPECT_EQ(id1.getRawId(), BasicId::max);
 
     BasicId id3(1);
     EXPECT_NE(id1, id3);
     EXPECT_NE(id3, BasicId::InvalidId);
-    EXPECT_NE(id3.getRawId(), std::numeric_limits<uint8_t>::max());
+    EXPECT_NE(id3.getRawId(), BasicId::max);
 }
 
 //

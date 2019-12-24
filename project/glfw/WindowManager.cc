@@ -6,6 +6,8 @@
 #include "glfw/api.hh"
 #include "glfw/WindowManager.hh"
 
+#include <assert.h>
+
 namespace Engine::glfw
 {
 
@@ -70,6 +72,7 @@ void WindowManager::close(WindowId id)
     if(id != WindowId::InvalidId)
     {
         const WindowId::IdType idx = id.getRawId();
+        assert(idx >= 0 && idx < WindowId::max);
         GLFWwindow* window = m_windows[idx];
         if(window != nullptr)
         {
@@ -89,6 +92,7 @@ GLFWwindow* WindowManager::getWindow(WindowId id) const
     if(id != WindowId::InvalidId)
     {
         const WindowId::IdType idx = id.getRawId();
+        
         result = m_windows[idx];
     }
 
@@ -102,7 +106,7 @@ GLFWwindow* WindowManager::getWindow(WindowId id) const
 
 WindowId::IdType WindowManager::getNextAvailableWindowIdx() const
 {
-    for(WindowId::IdType idx = 0; idx < WindowId::InvalidValue; ++idx)
+    for(WindowId::IdType idx = 0; idx < WindowId::max; ++idx)
     {
         if(m_windows[idx] == nullptr)
         {

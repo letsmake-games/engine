@@ -42,6 +42,16 @@ public: // types //////////////////////////////////////////////////////////////
     //
     static const IdClass InvalidId;
 
+    //
+    // minimum value
+    //
+    static constexpr IdType min = std::numeric_limits<IdType>::min();
+
+    //
+    // maximum value
+    //
+    static constexpr IdType max = std::numeric_limits<IdType>::max();
+
 public: // constructor / destructor ///////////////////////////////////////////
 
     //
