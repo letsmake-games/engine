@@ -1,0 +1,32 @@
+//
+// (C) LetsMakeGames 2019
+// http://www.letsmake.games
+//
+
+#pragma once
+
+#include <cstdint>
+#include <new>
+#include <stddef.h>
+#include <stdlib.h>
+
+//
+// project info ///////////////////////////////////////////////////////////////
+//
+
+#define PROJECT_NAME @PROJECT_NAME@
+#define PROJECT_MAJOR @PROJECT_MAJOR@
+#define PROJECT_MINOR @PROJECT_MINOR@
+#define PROJECT_PATCH @PROJECT_PATCH@
+#define PROJECT_VERSION "@PROJECT_VERSION@"
+
+//
+// platform defines ///////////////////////////////////////////////////////////
+//
+
+#mesondefine BT_PLATFORM_UNIX
+#mesondefine BT_PLATFORM_WIN32
+#mesondefine BT_PLATFORM_APPLE
+#mesondefine BT_PLATFORM_MINGW
+#mesondefine BT_PLATFORM_CYGWIN
+#mesondefine BT_PLATFORM_OTHER
