@@ -121,39 +121,53 @@ fi
 echo ""
 
 #
-# Setup python ################################################################
+# Install NVM #################################################################
 #
 
 if [[ $NOPROMPT = false ]]
 then
-    read -p "${BEGIN}Tooling for this project requires use of Python 3.  Would you \
-    like to install it now? [y/n]${END}"
+    read -p "${BEGIN}This project uses NodeJS for many of its tools and components.  We highly \
+    recommend using Node Version Manager (NVM) to ensure a local node installation \
+    for this project.  Would you like to install NVM version $NVM_VER? ${END}\
+    "
     echo ""
 fi
-
-if [[ $REPLY =~ ^[Yy]$ ]] || [[ $NOPROMPT = true ]]
+if [[ $REPLY =~ ^[Yy]$ ]] || [[ $NOPROMPT = false ]]
 then
-    echo "${BEGIN}Installing python...${END}"
-    sudo apt-get install python3 python3-pip -y
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+  echo ""
 fi
+
+#
+# Install yarn ################################################################
+#
 
 if [[ $NOPROMPT = false ]]
 then
-    read -p "${BEGIN}For convenience the deps tool can be installed to your system \
-    Alternatively you can install its dependencies using pip and call it directly \
-    via tools/deps/bin/deps.  Would you like to install it? [y/n]${END}"
+    read -p "${BEGIN}This project uses yarn as it's package manager as an alternative to npm. \
+    You can install it manually via the instructions here https://yarnpkg.com/en/docs/install#debian-stable \
+    or you can allow us to do it automatically.  Would you like to do it automatically? ${END}\
+    "
+    echo ""
+fi
+if [[ $REPLY =~ ^[Yy]$ ]] || [[ $NOPROMPT = false ]]
+then
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    sudo apt update && sudo apt install yarn
     echo ""
 fi
 
-if [[ $REPLY =~ ^[Yy]$ ]] || [[ $NOPROMPT = true ]]
-then
-    echo "${BEGIN}Installing deps tool...${END}"
-    pip3 install setuptools
-    ORIG_DIR=$PWD
-    cd tools/deps
-    sudo python3 setup.py install
-    cd $ORIG_DIR
-fi
+#
+# Run yarn installation for node subprojects ##################################
+# 
+
+# deps project ----------------------------------------------------------------
+echo "Initializing deps tool..."
+cd tools/deps
+yarn install
+cd ../..
+echo ""
 
 #
 # Setup softlinks #############################################################
@@ -171,6 +185,7 @@ fi
 if [[ $REPLY =~ ^[Yy]$ ]] || [[ $NOPROMPT = true ]]
 then
   echo "${BEGIN}Creating links...${END}"
+  ln -s ./tools/deps/index.js ./deps
   ln -s ./tools/build/linux/cbuild.sh ./build
   ln -s ./tools/build/linux/cbench.sh ./bench
   echo ""
