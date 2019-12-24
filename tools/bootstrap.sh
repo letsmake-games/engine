@@ -57,13 +57,11 @@ then
 
 fi
 
-echo "${BEGIN}DONE!${END}"
-echo ""
-
 #
 # Install CMake ###############################################################
 #
 
+clear
 if [[ $NOPROMPT = false ]]
 then
     read -p "${BEGIN}This project uses CMake to build it's native libraries.  If you have a \
@@ -124,6 +122,7 @@ echo ""
 # Setup python ################################################################
 #
 
+clear
 if [[ $NOPROMPT = false ]]
 then
     read -p "${BEGIN}Tooling for this project requires use of Python 3.  Would you \
@@ -159,6 +158,7 @@ fi
 # Setup softlinks #############################################################
 #
 
+clear
 if [[ $NOPROMPT = false ]]
 then
     read -p "${BEGIN}Based on your platform we can create softlinks to common tools and utilities \
@@ -180,6 +180,7 @@ fi
 # Finished ####################################################################
 #
 
+clear
 echo "${FINAL}Project has been bootstrapped!  Next you should run \"deps install\" and then you will be able to run \"./build\"${END}"
 if [[ $NEED_BASH_PROFILE = true ]]
 then
