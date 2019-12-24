@@ -132,7 +132,7 @@ then
     "
     echo ""
 fi
-if [[ $REPLY =~ ^[Yy]$ ]] || [[ $NOPROMPT = false ]]
+if [[ $REPLY =~ ^[Yy]$ ]] || [[ $NOPROMPT = true ]]
 then
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
   echo ""
@@ -150,7 +150,7 @@ then
     "
     echo ""
 fi
-if [[ $REPLY =~ ^[Yy]$ ]] || [[ $NOPROMPT = false ]]
+if [[ $REPLY =~ ^[Yy]$ ]] || [[ $NOPROMPT = true ]]
 then
     echo "${BEGIN}Instlling yarn...${END}"
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
